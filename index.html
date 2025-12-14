@@ -6,22 +6,23 @@
     
     <!-- SEO METADATA -->
     <title>Nikolas Bradshaw | ERPNext Architect & Engineer</title>
-    <meta name="description" content="Portfolio of Nikolas Bradshaw. ERPNext Specialist and Project Manager in Bountiful, UT. Expert in Frappe Framework, Python, Gemini AI Integrations, and Migration Strategies.">
-    <meta name="keywords" content="Nikolas Bradshaw, ERPNext Developer, Frappe Framework, Python, Gemini AI, Sapphire Fountains, QuickBooks Migration, Bountiful UT">
+    <meta name="description" content="Portfolio of Nikolas Bradshaw. ERPNext Specialist and Project Manager in Bountiful, UT. Expert in Frappe Framework, Python, and Migration Strategies.">
+    <meta name="keywords" content="Nikolas Bradshaw, ERPNext Developer, Frappe Framework, Python, Sapphire Fountains, QuickBooks Migration, Bountiful UT">
     <meta name="author" content="Nikolas Bradshaw">
     
     <!-- Open Graph -->
     <meta property="og:title" content="Nikolas Bradshaw | ERPNext Architect">
-    <meta property="og:description" content="Specializing in high-complexity ERPNext customizations, AI integrations, and legacy system migrations.">
+    <meta property="og:description" content="Specializing in high-complexity ERPNext customizations and legacy system migrations.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://nbbshaw.com/">
+    <meta property="og:image" content="https://nbbshaw.com/profile.jpg">
 
     <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 
-    <!-- ICONS (Phosphor Icons - Lightweight/Clean) -->
+    <!-- ICONS -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
     <style>
@@ -170,11 +171,45 @@
 
         /* --- HERO --- */
         .hero {
-            min-height: 100vh;
+            min-height: 90vh;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
+            align-items: center;
             padding-top: 80px;
+        }
+
+        .hero-inner {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            flex-wrap: wrap-reverse; /* Text on top on mobile if wrapped */
+        }
+
+        .hero-content {
+            flex: 1.5;
+            min-width: 300px;
+        }
+
+        .hero-image-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            min-width: 280px;
+        }
+
+        .profile-img {
+            width: 280px;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid rgba(59, 130, 246, 0.3);
+            box-shadow: 0 0 40px rgba(59, 130, 246, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 60px rgba(6, 182, 212, 0.3);
+            border-color: var(--accent);
         }
 
         .hero-tag {
@@ -360,75 +395,6 @@
             border-radius: 4px;
         }
 
-        /* --- AI CHAT SECTION --- */
-        .chat-container {
-            background: linear-gradient(145deg, rgba(30, 41, 59, 0.4), rgba(15, 23, 42, 0.6));
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            min-height: 400px;
-            max-height: 600px;
-            position: relative;
-        }
-
-        .chat-messages {
-            flex: 1;
-            padding: 20px;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .message {
-            max-width: 80%;
-            padding: 12px 16px;
-            border-radius: 12px;
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-
-        .message.ai {
-            background: rgba(59, 130, 246, 0.1);
-            color: var(--text-main);
-            align-self: flex-start;
-            border-bottom-left-radius: 2px;
-            border: 1px solid rgba(59, 130, 246, 0.2);
-        }
-
-        .message.user {
-            background: var(--primary);
-            color: white;
-            align-self: flex-end;
-            border-bottom-right-radius: 2px;
-        }
-
-        .chat-input-area {
-            padding: 15px;
-            background: rgba(0,0,0,0.2);
-            border-top: 1px solid var(--border);
-            display: flex;
-            gap: 10px;
-        }
-
-        .chat-input {
-            flex: 1;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid var(--border);
-            color: white;
-            padding: 10px 15px;
-            border-radius: 8px;
-            font-family: inherit;
-            outline: none;
-        }
-
-        .chat-input:focus {
-            border-color: var(--accent);
-            background: rgba(255,255,255,0.08);
-        }
-
         /* --- CONTACT --- */
         .contact-box {
             background: linear-gradient(180deg, rgba(30, 41, 59, 0.4), rgba(15, 23, 42, 0.8));
@@ -450,8 +416,13 @@
         /* --- MOBILE TWEAKS --- */
         @media (max-width: 768px) {
             .nav-links { display: none; }
+            .hero-inner { flex-direction: column-reverse; gap: 30px; text-align: center; }
+            .hero-desc { margin: 0 auto 2.5rem auto; }
+            .btn-group { justify-content: center; }
             .stack-row { flex-direction: column; align-items: flex-start; gap: 12px; }
             .stack-label { width: 100%; margin-bottom: 8px; color: var(--primary); }
+            .hero-image-container { margin-bottom: 20px; }
+            .profile-img { width: 220px; height: 220px; }
         }
     </style>
 </head>
@@ -468,7 +439,6 @@
                 <a href="#about">About</a>
                 <a href="#erp-work">ERPNext</a>
                 <a href="#projects">Dev</a>
-                <a href="#ai-architect">AI Agent</a>
                 <a href="#contact">Contact</a>
             </div>
         </div>
@@ -476,20 +446,29 @@
 
     <!-- HERO -->
     <section class="hero container">
-        <span class="hero-tag mono">Project Manager | Operations Engineer</span>
-        <h1>Bridging the gap between<br> <span class="highlight">Physical Operations</span> and <span class="highlight">Software</span>.</h1>
-        <p class="hero-desc">
-            I'm Nikolas Bradshaw. I architect and build high-performance ERPNext systems, integrate Generative AI into business logic, and manage complex operational infrastructures in Bountiful, Utah.
-        </p>
-        <div class="btn-group">
-            <a href="#erp-work" class="btn btn-primary">
-                View Architecture
-                <i class="ph ph-arrow-right"></i>
-            </a>
-            <a href="https://github.com/sapphirefountains" target="_blank" class="btn btn-ghost">
-                <i class="ph ph-github-logo"></i>
-                Github
-            </a>
+        <div class="hero-inner">
+            <div class="hero-content">
+                <span class="hero-tag mono">Project Manager | Operations Engineer</span>
+                <h1>Bridging the gap between<br> <span class="highlight">Physical Operations</span> and <span class="highlight">Software</span>.</h1>
+                <p class="hero-desc">
+                    I'm Nikolas Bradshaw. I architect and build high-performance ERPNext systems, integrate Generative AI into business logic, and manage complex operational infrastructures in Bountiful, Utah.
+                </p>
+                <div class="btn-group">
+                    <a href="#erp-work" class="btn btn-primary">
+                        View Architecture
+                        <i class="ph ph-arrow-right"></i>
+                    </a>
+                    <a href="https://github.com/sapphirefountains" target="_blank" class="btn btn-ghost">
+                        <i class="ph ph-github-logo"></i>
+                        Github
+                    </a>
+                </div>
+            </div>
+            
+            <div class="hero-image-container">
+                <!-- IMPORTANT: Rename your uploaded image to profile.jpg and ensure it is in the same folder -->
+                <img src="profile.jpg" alt="Nikolas Bradshaw" class="profile-img">
+            </div>
         </div>
     </section>
 
@@ -627,48 +606,6 @@
             </div>
         </div>
     </section>
-    
-    <!-- AI ARCHITECT CHAT -->
-    <section id="ai-architect" class="section">
-        <div class="container">
-            <h2><i class="ph ph-sparkle highlight"></i> Ask the AI Architect</h2>
-            <div style="display: flex; gap: 40px; flex-wrap: wrap;">
-                <div style="flex: 1; min-width: 300px;">
-                     <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 1.1rem;">
-                        This agent is powered by <strong>Gemini 2.5 Flash</strong> and has been trained on my portfolio context.
-                    </p>
-                    <p style="color: var(--text-muted); margin-bottom: 30px;">
-                        Ask it about:
-                    </p>
-                    <ul style="color: var(--text-muted); margin-bottom: 20px; padding-left: 20px;">
-                        <li style="margin-bottom: 10px;">• My experience with <strong>ERPNext Migrations</strong></li>
-                        <li style="margin-bottom: 10px;">• How I integrate <strong>AI into Legacy Systems</strong></li>
-                        <li style="margin-bottom: 10px;">• My hardware projects (Mining Rigs, Car Telemetry)</li>
-                        <li>• A hypothetical architectural recommendation for your business</li>
-                    </ul>
-                </div>
-                
-                <div style="flex: 1.5; min-width: 340px;">
-                    <div class="chat-container">
-                        <div class="chat-messages" id="chat-messages">
-                            <div class="message ai">
-                                Hello! I'm Nikolas's digital assistant. How can I help you architect your next solution today?
-                            </div>
-                        </div>
-                        <div class="chat-input-area">
-                            <input type="text" id="chat-input" class="chat-input" placeholder="Ask about my Frappe experience..." onkeypress="handleKeyPress(event)">
-                            <button class="btn btn-primary" onclick="sendMessage()">
-                                <i class="ph ph-paper-plane-right"></i> Send ✨
-                            </button>
-                        </div>
-                    </div>
-                    <div style="text-align: right; margin-top: 5px;">
-                        <small style="color: var(--text-muted); font-size: 0.75rem;">Powered by Google Gemini API</small>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- ABOUT / PERSONAL -->
     <section id="about" class="section">
@@ -687,7 +624,7 @@
                     <div style="flex: 1; min-width: 300px;">
                         <ul style="border-left: 2px solid var(--border); padding-left: 20px;">
                             <li style="margin-bottom: 20px;">
-                                <div style="color: var(--accent); font-weight: 700; margin-bottom: 5px;">2022 — Present</div>
+                                <div style="color: var(--accent); font-weight: 700; margin-bottom: 5px;">May 2025 — Present</div>
                                 <div style="font-weight: 600;">Project Manager & Operations Lead</div>
                                 <div style="font-size: 0.9rem; color: var(--text-muted);">Sapphire Fountains</div>
                             </li>
@@ -724,130 +661,10 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Nikolas Bradshaw. Built with <i class="ph ph-coffee" style="color: var(--accent)"></i> and Gemini.</p>
+            <p>&copy; 2025 Nikolas Bradshaw. Built with <i class="ph ph-coffee" style="color: var(--accent)"></i> and Python.</p>
             <p class="mono" style="font-size: 0.8rem; margin-top: 10px; opacity: 0.5;">nbbshaw.com</p>
         </div>
     </footer>
 
-    <!-- GEMINI API SCRIPT -->
-    <script>
-        const apiKey = ""; // The execution environment provides the key at runtime
-
-        const systemPrompt = `
-        You are an AI assistant for the portfolio of Nikolas Bradshaw.
-        
-        About Nikolas:
-        - Role: Project Manager, Operations Lead, and Software Engineer.
-        - Location: Bountiful, Utah.
-        - Company: Sapphire Fountains.
-        - Education: BS Computer Science at Western Governors University (WGU).
-        - Core Stack: Python, Frappe Framework, ERPNext (v14/15), JavaScript (Vue.js), Docker, Linux, SQL (MariaDB).
-        
-        Key Projects:
-        1. Gemini AI Integration: Integrated Google Gemini Pro into ERPNext for SQL querying and doc summarization.
-        2. QuickBooks Time Bridge: Created a sync engine to migrate/sync data from QB Time to ERPNext.
-        3. Project Module Overhaul: Custom JavaScript/Python customization of ERPNext Projects module.
-        4. Hardware: Built a crypto mining farm (LTC/DOGE) and a telemetry dashboard for a 2025 Hyundai Sonata using OBD-II/Raspberry Pi.
-        
-        Your Goal:
-        Answer user questions about Nikolas's skills, experience, and projects. 
-        If the user asks for architectural advice (e.g., "How do I migrate from X to Y?"), give a high-level recommendation based on Nikolas's expertise (e.g., suggesting Frappe or Python scripts).
-        Be professional, concise, and technically accurate.
-        `;
-
-        function handleKeyPress(event) {
-            if (event.key === 'Enter') {
-                sendMessage();
-            }
-        }
-
-        async function sendMessage() {
-            const inputField = document.getElementById('chat-input');
-            const messageContainer = document.getElementById('chat-messages');
-            const userText = inputField.value.trim();
-
-            if (!userText) return;
-
-            // Add User Message
-            appendMessage('user', userText);
-            inputField.value = '';
-            
-            // Add Loading Indicator
-            const loadingId = 'loading-' + Date.now();
-            appendMessage('ai', 'Thinking...', loadingId);
-
-            try {
-                const responseText = await callGeminiAPI(userText);
-                
-                // Remove loading and add real response
-                const loadingElement = document.getElementById(loadingId);
-                if (loadingElement) loadingElement.remove();
-                
-                appendMessage('ai', responseText);
-            } catch (error) {
-                const loadingElement = document.getElementById(loadingId);
-                if (loadingElement) loadingElement.remove();
-                appendMessage('ai', "I'm having trouble connecting to the neural network right now. Please try again later.");
-                console.error(error);
-            }
-        }
-
-        function appendMessage(sender, text, id = null) {
-            const messageContainer = document.getElementById('chat-messages');
-            const div = document.createElement('div');
-            div.className = `message ${sender}`;
-            div.textContent = text;
-            if (id) div.id = id;
-            messageContainer.appendChild(div);
-            messageContainer.scrollTop = messageContainer.scrollHeight;
-        }
-
-        async function callGeminiAPI(userQuery) {
-            if (!apiKey) {
-                return "Note: API Key is missing. If you are viewing this locally, you need to add your Gemini API key to the script at the bottom of the HTML file.";
-            }
-
-            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
-            
-            const payload = {
-                contents: [{
-                    parts: [{ text: userQuery }]
-                }],
-                systemInstruction: {
-                    parts: [{ text: systemPrompt }]
-                }
-            };
-
-            // Retry logic with exponential backoff
-            const maxRetries = 5;
-            let attempt = 0;
-            let delay = 1000;
-
-            while (attempt < maxRetries) {
-                try {
-                    const response = await fetch(url, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(payload)
-                    });
-
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
-                    }
-
-                    const data = await response.json();
-                    return data.candidates?.[0]?.content?.parts?.[0]?.text || "No response generated.";
-
-                } catch (e) {
-                    attempt++;
-                    if (attempt >= maxRetries) throw e;
-                    await new Promise(resolve => setTimeout(resolve, delay));
-                    delay *= 2;
-                }
-            }
-        }
-    </script>
 </body>
 </html>
