@@ -5,74 +5,131 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- SEO METADATA -->
-    <title>Nikolas Bradshaw | Operations Engineer & PM</title>
-    <meta name="description" content="Portfolio of Nikolas Bradshaw. Bridging operations and engineering in Bountiful, UT. Specializing in Python, Frappe, ERPNext, and AI Automation.">
-    <meta name="keywords" content="Nikolas Bradshaw, Project Manager, Software Engineer, Bountiful UT, Python, ERPNext, Frappe, Gemini AI, Sapphire Fountains, WGU">
+    <title>Nikolas Bradshaw | ERPNext Architect & Engineer</title>
+    <meta name="description" content="Portfolio of Nikolas Bradshaw. ERPNext Specialist and Project Manager in Bountiful, UT. Expert in Frappe Framework, Python, Gemini AI Integrations, and Migration Strategies.">
+    <meta name="keywords" content="Nikolas Bradshaw, ERPNext Developer, Frappe Framework, Python, Gemini AI, Sapphire Fountains, QuickBooks Migration, Bountiful UT">
     <meta name="author" content="Nikolas Bradshaw">
-    <meta property="og:image" content="https://nbbshaw.com/assets/og-image.jpg"> <!-- Fallback if you add an image later -->
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Nikolas Bradshaw | ERPNext Architect">
+    <meta property="og:description" content="Specializing in high-complexity ERPNext customizations, AI integrations, and legacy system migrations.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nbbshaw.com/">
 
     <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- ICONS (Phosphor Icons - Lightweight/Clean) -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
     <style>
-        /* --- VARIABLES & RESET --- */
+        /* --- VARIABLES & THEME --- */
         :root {
-            --bg-dark: #0f172a;
-            --bg-card: rgba(30, 41, 59, 0.7);
-            --text-main: #f8fafc;
+            /* Carbon Blue Theme */
+            --bg-dark: #0b1120;       /* Very deep blue/black */
+            --bg-glass: rgba(30, 41, 59, 0.6);
+            --bg-card: rgba(15, 23, 42, 0.6);
+            
+            --text-main: #f1f5f9;
             --text-muted: #94a3b8;
-            --accent-primary: #38bdf8; /* Sky Blue */
-            --accent-secondary: #818cf8; /* Indigo */
-            --carbon-blue: #1e3a8a; /* Deep Carbon Blue hint */
-            --border: rgba(148, 163, 184, 0.1);
-            --glass: rgba(255, 255, 255, 0.05);
+            
+            --primary: #3b82f6;       /* Standard Blue */
+            --accent: #06b6d4;        /* Cyan/Carbon highlight */
+            --code: #cbd5e1;
+            
+            --border: rgba(148, 163, 184, 0.15);
+            --blur: 16px;
         }
 
         * {
             box-sizing: border-box;
-            scroll-behavior: smooth;
+            margin: 0;
+            padding: 0;
         }
 
+        html { scroll-behavior: smooth; }
+
         body {
-            margin: 0;
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-dark);
             color: var(--text-main);
+            /* Subtle gradient background mesh */
             background-image: 
-                radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.15) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(129, 140, 248, 0.15) 0%, transparent 40%);
+                radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.08), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(6, 182, 212, 0.08), transparent 25%);
             background-attachment: fixed;
-            line-height: 1.7;
+            line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        a { text-decoration: none; color: inherit; transition: 0.3s; }
-        ul { list-style: none; padding: 0; margin: 0; }
+        a { text-decoration: none; color: inherit; transition: all 0.2s ease; }
+        ul { list-style: none; }
 
-        /* --- LAYOUT UTILS --- */
+        /* --- LAYOUT --- */
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 24px;
         }
 
-        .section-padding {
+        .section {
             padding: 100px 0;
+            position: relative;
         }
 
-        /* --- NAVIGATION --- */
+        /* --- TYPOGRAPHY --- */
+        h1, h2, h3 {
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            line-height: 1.1;
+            background: linear-gradient(135deg, #fff 30%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        h2::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, var(--border), transparent);
+        }
+
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .highlight {
+            color: var(--accent);
+        }
+
+        /* --- NAV --- */
         nav {
             position: fixed;
             top: 0;
-            width: 100%;
-            padding: 20px 0;
-            background: rgba(15, 23, 42, 0.8);
-            backdrop-filter: blur(12px);
+            left: 0;
+            right: 0;
             z-index: 1000;
+            background: rgba(11, 17, 32, 0.85);
+            backdrop-filter: blur(var(--blur));
             border-bottom: 1px solid var(--border);
+            padding: 1rem 0;
         }
-        
+
         .nav-inner {
             display: flex;
             justify-content: space-between;
@@ -80,238 +137,321 @@
         }
 
         .logo {
-            font-family: 'JetBrains Mono', monospace;
             font-weight: 700;
-            font-size: 1.2rem;
-            color: var(--accent-primary);
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 12px var(--accent);
         }
 
         .nav-links {
             display: flex;
-            gap: 30px;
+            gap: 32px;
         }
 
         .nav-links a {
             font-size: 0.9rem;
-            font-weight: 500;
             color: var(--text-muted);
+            font-weight: 500;
         }
 
         .nav-links a:hover {
-            color: var(--accent-primary);
+            color: var(--text-main);
+            text-shadow: 0 0 20px rgba(255,255,255,0.3);
         }
 
-        /* --- HERO SECTION --- */
+        /* --- HERO --- */
         .hero {
             min-height: 100vh;
             display: flex;
-            align-items: center;
-            padding-top: 80px; /* Offset for fixed nav */
+            flex-direction: column;
+            justify-content: center;
+            padding-top: 80px;
         }
 
-        .hero-content {
-            max-width: 700px;
-        }
-
-        .eyebrow {
-            color: var(--accent-primary);
+        .hero-tag {
             font-family: 'JetBrains Mono', monospace;
+            color: var(--accent);
             font-size: 0.9rem;
-            margin-bottom: 16px;
-            display: block;
-        }
-
-        h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            line-height: 1.1;
-            margin: 0 0 24px 0;
-            background: linear-gradient(to right, #fff, #94a3b8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 800;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            background: rgba(6, 182, 212, 0.1);
+            padding: 6px 12px;
+            border-radius: 4px;
+            border: 1px solid rgba(6, 182, 212, 0.2);
         }
 
         .hero-desc {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            margin-bottom: 40px;
             max-width: 600px;
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
         }
 
-        .cta-group {
+        .btn-group {
             display: flex;
             gap: 16px;
         }
 
         .btn {
-            padding: 14px 28px;
-            border-radius: 6px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: 8px;
             font-weight: 600;
-            display: inline-block;
+            font-size: 1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
             cursor: pointer;
+            border: none;
         }
 
         .btn-primary {
-            background: var(--accent-primary);
-            color: #0f172a;
-            box-shadow: 0 4px 14px rgba(56, 189, 248, 0.3);
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            background: #7dd3fc;
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.4);
         }
 
-        .btn-outline {
-            border: 1px solid var(--text-muted);
+        .btn-ghost {
+            border: 1px solid var(--border);
             color: var(--text-main);
+            background: rgba(255,255,255,0.03);
         }
 
-        .btn-outline:hover {
-            border-color: var(--text-main);
-            background: var(--glass);
+        .btn-ghost:hover {
+            background: rgba(255,255,255,0.08);
+            border-color: var(--text-muted);
         }
 
-        /* --- ABOUT & EXPERIENCE --- */
-        .section-title {
-            font-size: 2rem;
-            margin-bottom: 40px;
-            position: relative;
-            display: inline-block;
-        }
-        
-        .section-title::after {
-            content: "";
-            position: absolute;
-            width: 60px;
-            height: 4px;
-            background: var(--accent-secondary);
-            bottom: -10px;
-            left: 0;
-            border-radius: 2px;
-        }
-
-        .timeline-item {
-            position: relative;
-            padding-left: 40px;
-            margin-bottom: 40px;
-            border-left: 2px solid var(--border);
-        }
-
-        .timeline-item::before {
-            content: "";
-            position: absolute;
-            left: -6px;
-            top: 0;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: var(--accent-primary);
-        }
-
-        .timeline-date {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.85rem;
-            color: var(--accent-secondary);
-            margin-bottom: 8px;
-            display: block;
-        }
-
-        .timeline-role {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--text-main);
-            margin: 0 0 8px 0;
-        }
-
-        .timeline-company {
-            font-size: 1rem;
-            color: var(--text-muted);
-            margin-bottom: 12px;
-        }
-
-        /* --- GRID STYLES (PROJECTS) --- */
+        /* --- GRID CARDS --- */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
             gap: 24px;
         }
 
         .card {
             background: var(--bg-card);
             border: 1px solid var(--border);
+            padding: 2rem;
             border-radius: 12px;
-            padding: 30px;
-            transition: transform 0.2s, border-color 0.2s;
-            backdrop-filter: blur(10px);
+            transition: transform 0.3s, border-color 0.3s;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
 
         .card:hover {
             transform: translateY(-5px);
-            border-color: var(--accent-primary);
+            border-color: var(--primary);
         }
 
-        .project-top {
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card-header {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
+            align-items: flex-start;
+            margin-bottom: 1rem;
         }
 
         .folder-icon {
-            color: var(--accent-primary);
-            width: 40px;
-            height: 40px;
+            font-size: 2rem;
+            color: var(--primary);
         }
 
-        .card h3 { margin: 0 0 10px 0; font-size: 1.2rem; }
+        .repo-links {
+            display: flex;
+            gap: 12px;
+        }
         
-        .card p {
+        .repo-links i {
+            font-size: 1.25rem;
             color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 20px;
+            cursor: pointer;
         }
 
-        .tech-stack {
+        .repo-links i:hover { color: var(--accent); }
+
+        .card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-main);
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .tech-list {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.8rem;
-            color: var(--accent-secondary);
+            margin-top: auto;
         }
 
-        /* --- SKILLS --- */
-        .skills-list {
+        .tech-item {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--accent);
+        }
+
+        /* --- TECH STACK SECTION --- */
+        .stack-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 24px;
+            padding: 16px;
+            background: rgba(255,255,255,0.02);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .stack-label {
+            width: 150px;
+            font-weight: 600;
+            color: var(--text-main);
+            flex-shrink: 0;
+        }
+
+        .stack-tags {
             display: flex;
             flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            background: rgba(0,0,0,0.2);
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+
+        /* --- AI CHAT SECTION --- */
+        .chat-container {
+            background: linear-gradient(145deg, rgba(30, 41, 59, 0.4), rgba(15, 23, 42, 0.6));
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 400px;
+            max-height: 600px;
+            position: relative;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
             gap: 15px;
         }
 
-        .skill-tag {
-            background: var(--glass);
-            padding: 8px 16px;
-            border-radius: 20px;
-            border: 1px solid var(--border);
-            font-size: 0.9rem;
+        .message {
+            max-width: 80%;
+            padding: 12px 16px;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .message.ai {
+            background: rgba(59, 130, 246, 0.1);
             color: var(--text-main);
+            align-self: flex-start;
+            border-bottom-left-radius: 2px;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .message.user {
+            background: var(--primary);
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 2px;
+        }
+
+        .chat-input-area {
+            padding: 15px;
+            background: rgba(0,0,0,0.2);
+            border-top: 1px solid var(--border);
+            display: flex;
+            gap: 10px;
+        }
+
+        .chat-input {
+            flex: 1;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-family: inherit;
+            outline: none;
+        }
+
+        .chat-input:focus {
+            border-color: var(--accent);
+            background: rgba(255,255,255,0.08);
+        }
+
+        /* --- CONTACT --- */
+        .contact-box {
+            background: linear-gradient(180deg, rgba(30, 41, 59, 0.4), rgba(15, 23, 42, 0.8));
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 4rem 2rem;
+            text-align: center;
         }
 
         /* --- FOOTER --- */
         footer {
+            padding: 40px 0;
             text-align: center;
-            padding: 50px 0;
+            border-top: 1px solid var(--border);
             color: var(--text-muted);
             font-size: 0.9rem;
-            border-top: 1px solid var(--border);
-            margin-top: 80px;
         }
 
-        /* --- UTILITY & MOBILE --- */
+        /* --- MOBILE TWEAKS --- */
         @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            .hero-content { text-align: left; }
-            .nav-links { display: none; } /* Could add hamburger menu for fuller mobile exp */
+            .nav-links { display: none; }
+            .stack-row { flex-direction: column; align-items: flex-start; gap: 12px; }
+            .stack-label { width: 100%; margin-bottom: 8px; color: var(--primary); }
         }
     </style>
 </head>
@@ -320,198 +460,394 @@
     <!-- NAV -->
     <nav>
         <div class="container nav-inner">
-            <div class="logo">NBB.SHAW</div>
+            <a href="#" class="logo">
+                <div class="logo-dot"></div>
+                <span class="mono">NBB.SHAW</span>
+            </a>
             <div class="nav-links">
                 <a href="#about">About</a>
-                <a href="#experience">Experience</a>
-                <a href="#projects">Work</a>
+                <a href="#erp-work">ERPNext</a>
+                <a href="#projects">Dev</a>
+                <a href="#ai-architect">AI Agent</a>
                 <a href="#contact">Contact</a>
             </div>
         </div>
     </nav>
 
     <!-- HERO -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <span class="eyebrow">Hi, my name is</span>
-                <h1>Nikolas Bradshaw.</h1>
-                <h1 style="color: var(--text-muted); opacity: 0.7;">I build systems for the real world.</h1>
-                <p class="hero-desc">
-                    I'm a Project Manager and Engineer based in Bountiful, UT. I specialize in bridging the gap between hardware operations and modern software, building everything from 
-                    <span style="color: var(--accent-primary)">ERP integrations</span> to <span style="color: var(--accent-secondary)">crypto mining infrastructure</span>.
-                </p>
-                <div class="cta-group">
-                    <a href="mailto:contact@nbbshaw.com" class="btn btn-primary">Get In Touch</a>
-                    <a href="#projects" class="btn btn-outline">View Projects</a>
-                </div>
-            </div>
+    <section class="hero container">
+        <span class="hero-tag mono">Project Manager | Operations Engineer</span>
+        <h1>Bridging the gap between<br> <span class="highlight">Physical Operations</span> and <span class="highlight">Software</span>.</h1>
+        <p class="hero-desc">
+            I'm Nikolas Bradshaw. I architect and build high-performance ERPNext systems, integrate Generative AI into business logic, and manage complex operational infrastructures in Bountiful, Utah.
+        </p>
+        <div class="btn-group">
+            <a href="#erp-work" class="btn btn-primary">
+                View Architecture
+                <i class="ph ph-arrow-right"></i>
+            </a>
+            <a href="https://github.com/sapphirefountains" target="_blank" class="btn btn-ghost">
+                <i class="ph ph-github-logo"></i>
+                Github
+            </a>
         </div>
     </section>
 
-    <!-- ABOUT & EXPERIENCE -->
-    <section id="about" class="section-padding">
+    <!-- ERP WORK (THE HIGHLIGHT) -->
+    <section id="erp-work" class="section">
         <div class="container">
-            <h2 class="section-title">About & Experience</h2>
-            <div style="display: grid; grid-template-columns: 1fr; gap: 40px; margin-top: 20px;">
-                
-                <!-- BIO -->
-                <div>
-                    <p style="color: var(--text-muted); font-size: 1.1rem;">
-                        I am currently pursuing a Computer Science degree at <strong>Western Governors University</strong> while managing operations full-time. My background is unique: I don't just write code; I understand the physical systems behind it, whether that's vehicle telemetry, PVC manifold logistics, or server cooling.
-                    </p>
-                    <p style="color: var(--text-muted); font-size: 1.1rem;">
-                        When I'm not migrating databases or scripting Python automations, you can find me cruising in my 2025 Sonata or fine-tuning my personal mining farm.
-                    </p>
-                </div>
-
-                <!-- TIMELINE -->
-                <div style="margin-top: 20px;">
-                    <div class="timeline-item">
-                        <span class="timeline-date">2022 - Present</span>
-                        <h3 class="timeline-role">Project Manager & Operations Lead</h3>
-                        <p class="timeline-company">Sapphire Fountains</p>
-                        <p style="color: var(--text-muted);">
-                            Leading the migration from QuickBooks Online to ERPNext. Developing custom Frappe applications to manage complex travel logistics and operational workflows. 
-                        </p>
-                    </div>
-
-                    <div class="timeline-item">
-                        <span class="timeline-date">2020 - Present</span>
-                        <h3 class="timeline-role">Freelance Software Engineer</h3>
-                        <p class="timeline-company">Remote / Bountiful, UT</p>
-                        <p style="color: var(--text-muted);">
-                            Building custom Python automations, web scrapers, and hardware integration scripts for small business clients.
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="projects" class="section-padding">
-        <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="grid" style="margin-top: 30px;">
-                
-                <!-- PROJECT 1 -->
-                <div class="card">
-                    <div class="project-top">
-                        <div class="folder-icon">
-                            <!-- Simple SVG Folder Icon -->
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
-                            </svg>
-                        </div>
-                    </div>
-                    <h3>Enterprise RAG Agent</h3>
-                    <p>An AI agent integrated with ERPNext that allows natural language queries of company data (PDFs, Invoices) using Google Gemini Pro.</p>
-                    <div class="tech-stack">
-                        <span>Python</span>
-                        <span>LangChain</span>
-                        <span>Gemini API</span>
-                        <span>Frappe</span>
-                    </div>
-                </div>
-
-                <!-- PROJECT 2 -->
-                <div class="card">
-                    <div class="project-top">
-                        <div class="folder-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25" />
-                            </svg>
-                        </div>
-                    </div>
-                    <h3>Travel Management App</h3>
-                    <p>A custom module built within Frappe to handle employee travel logistics, effectively replacing legacy spreadsheet workflows.</p>
-                    <div class="tech-stack">
-                        <span>JavaScript</span>
-                        <span>Frappe/MariaDB</span>
-                        <span>Jinja2</span>
-                    </div>
-                </div>
-
-                <!-- PROJECT 3 -->
-                <div class="card">
-                    <div class="project-top">
-                        <div class="folder-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
-                            </svg>
-                        </div>
-                    </div>
-                    <h3>Crypto Mining Farm</h3>
-                    <p>Personal infrastructure project managing multiple servers for LTC/DOGE mining, including power optimization and thermal management.</p>
-                    <div class="tech-stack">
-                        <span>Hardware</span>
-                        <span>Networking</span>
-                        <span>Linux SysAdmin</span>
-                    </div>
-                </div>
-
-                 <!-- PROJECT 4 -->
-                 <div class="card">
-                    <div class="project-top">
-                        <div class="folder-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
-                            </svg>
-                        </div>
-                    </div>
-                    <h3>Sonata Telemetry (WIP)</h3>
-                    <p>A Python-based dashboard for reading OBDII/CAN bus data from a 2025 Hyundai Sonata for real-time performance logging.</p>
-                    <div class="tech-stack">
-                        <span>Python</span>
-                        <span>OBD-II</span>
-                        <span>Raspberry Pi</span>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section class="section-padding">
-        <div class="container">
-            <h2 class="section-title">Technical Arsenal</h2>
-            <div class="skills-list" style="margin-top: 30px;">
-                <span class="skill-tag">Python (Advanced)</span>
-                <span class="skill-tag">Frappe Framework</span>
-                <span class="skill-tag">ERPNext</span>
-                <span class="skill-tag">JavaScript / Vue.js</span>
-                <span class="skill-tag">Docker</span>
-                <span class="skill-tag">Git</span>
-                <span class="skill-tag">Linux / Bash</span>
-                <span class="skill-tag">Generative AI / RAG</span>
-                <span class="skill-tag">Project Management</span>
-                <span class="skill-tag">Process Automation</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTACT / FOOTER -->
-    <section id="contact" style="text-align: center; padding: 100px 0;">
-        <div class="container">
-            <h2 style="font-size: 2.5rem; margin-bottom: 20px;">What's Next?</h2>
-            <p style="color: var(--text-muted); max-width: 500px; margin: 0 auto 40px auto;">
-                I am currently open to discussing new opportunities in Technical Project Management or Software Engineering.
+            <h2><i class="ph ph-buildings"></i> ERPNext Architecture @ Sapphire Fountains</h2>
+            <p style="max-width: 700px; color: var(--text-muted); margin-bottom: 40px;">
+                My core focus is modernizing business operations by migrating legacy systems (QuickBooks) to fully custom Frappe/ERPNext environments. I don't just configure; I write the code that makes the system work for the business.
             </p>
-            <a href="mailto:contact@nbbshaw.com" class="btn btn-primary" style="padding: 16px 32px; font-size: 1.1rem;">Say Hello</a>
+            
+            <div class="grid">
+                <!-- Project 1 -->
+                <div class="card">
+                    <div class="card-header">
+                        <i class="ph ph-brain folder-icon"></i>
+                        <div class="repo-links">
+                            <a href="https://github.com/sapphirefountains/gemini_integration" title="View Code"><i class="ph ph-github-logo"></i></a>
+                        </div>
+                    </div>
+                    <h3>Gemini AI Integration</h3>
+                    <p>
+                        A groundbreaking integration of Google's Gemini 1.5 Pro into ERPNext v15. Enables natural language querying of SQL data, automated document summarization, and intelligent context-aware assistance for users.
+                    </p>
+                    <div class="tech-list">
+                        <span class="tech-item">Python</span>
+                        <span class="tech-item">LLM</span>
+                        <span class="tech-item">Frappe Hooks</span>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="card">
+                    <div class="card-header">
+                        <i class="ph ph-arrows-left-right folder-icon"></i>
+                        <div class="repo-links">
+                             <a href="https://github.com/sapphirefountains/qb_time_integration" title="View Code"><i class="ph ph-github-logo"></i></a>
+                        </div>
+                    </div>
+                    <h3>QuickBooks Time Bridge</h3>
+                    <p>
+                        A robust sync engine that pulls time-tracking data from QuickBooks Time and maps it to ERPNext Timesheets. Solves the complex problem of migrating payroll data while maintaining historical integrity.
+                    </p>
+                    <div class="tech-list">
+                        <span class="tech-item">REST API</span>
+                        <span class="tech-item">Data Migration</span>
+                        <span class="tech-item">ETL</span>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="card">
+                    <div class="card-header">
+                        <i class="ph ph-briefcase folder-icon"></i>
+                        <div class="repo-links">
+                             <a href="https://github.com/sapphirefountains/project_enhancements" title="View Code"><i class="ph ph-github-logo"></i></a>
+                        </div>
+                    </div>
+                    <h3>Project Module Overhaul</h3>
+                    <p>
+                        Extensive JavaScript and Python customizations to the standard ERPNext 'Projects' module. Added custom costing logic, Gantt chart enhancements, and resource allocation tools specific to Sapphire Fountains' workflow.
+                    </p>
+                    <div class="tech-list">
+                        <span class="tech-item">JavaScript</span>
+                        <span class="tech-item">Client Scripts</span>
+                        <span class="tech-item">Server Scripts</span>
+                    </div>
+                </div>
+                
+                 <!-- Project 4 -->
+                 <div class="card">
+                    <div class="card-header">
+                        <i class="ph ph-users-three folder-icon"></i>
+                        <div class="repo-links">
+                             <a href="https://github.com/sapphirefountains/crm_enhancements" title="View Code"><i class="ph ph-github-logo"></i></a>
+                        </div>
+                    </div>
+                    <h3>CRM & Task Enhancements</h3>
+                    <p>
+                        A suite of custom apps (`crm_enhancements`, `task_enhancements`) that refine the sales pipeline. Automated lead assignment, custom status workflows, and enhanced task dependencies.
+                    </p>
+                    <div class="tech-list">
+                        <span class="tech-item">Frappe App</span>
+                        <span class="tech-item">Workflow Logic</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OTHER TECH -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2><i class="ph ph-code"></i> Technical Stack & Tools</h2>
+            
+            <div class="stack-row">
+                <div class="stack-label">Frameworks</div>
+                <div class="stack-tags">
+                    <span class="tag">Frappe Framework (v14/15)</span>
+                    <span class="tag">ERPNext</span>
+                    <span class="tag">Vue.js</span>
+                    <span class="tag">Bootstrap 5</span>
+                </div>
+            </div>
+
+            <div class="stack-row">
+                <div class="stack-label">Languages</div>
+                <div class="stack-tags">
+                    <span class="tag">Python (Expert)</span>
+                    <span class="tag">JavaScript (ES6+)</span>
+                    <span class="tag">SQL (MariaDB)</span>
+                    <span class="tag">Bash / Shell</span>
+                </div>
+            </div>
+
+            <div class="stack-row">
+                <div class="stack-label">DevOps & Tools</div>
+                <div class="stack-tags">
+                    <span class="tag">Docker</span>
+                    <span class="tag">Git / GitHub Actions</span>
+                    <span class="tag">Linux SysAdmin</span>
+                    <span class="tag">Google Cloud Platform</span>
+                    <span class="tag">VS Code</span>
+                </div>
+            </div>
+
+             <div class="stack-row">
+                <div class="stack-label">Hardware / IoT</div>
+                <div class="stack-tags">
+                    <span class="tag">Raspberry Pi</span>
+                    <span class="tag">OBD-II / CAN Bus</span>
+                    <span class="tag">Mining Rigs (LTC/DOGE)</span>
+                    <span class="tag">Thermal Management</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- AI ARCHITECT CHAT -->
+    <section id="ai-architect" class="section">
+        <div class="container">
+            <h2><i class="ph ph-sparkle highlight"></i> Ask the AI Architect</h2>
+            <div style="display: flex; gap: 40px; flex-wrap: wrap;">
+                <div style="flex: 1; min-width: 300px;">
+                     <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 1.1rem;">
+                        This agent is powered by <strong>Gemini 2.5 Flash</strong> and has been trained on my portfolio context.
+                    </p>
+                    <p style="color: var(--text-muted); margin-bottom: 30px;">
+                        Ask it about:
+                    </p>
+                    <ul style="color: var(--text-muted); margin-bottom: 20px; padding-left: 20px;">
+                        <li style="margin-bottom: 10px;">• My experience with <strong>ERPNext Migrations</strong></li>
+                        <li style="margin-bottom: 10px;">• How I integrate <strong>AI into Legacy Systems</strong></li>
+                        <li style="margin-bottom: 10px;">• My hardware projects (Mining Rigs, Car Telemetry)</li>
+                        <li>• A hypothetical architectural recommendation for your business</li>
+                    </ul>
+                </div>
+                
+                <div style="flex: 1.5; min-width: 340px;">
+                    <div class="chat-container">
+                        <div class="chat-messages" id="chat-messages">
+                            <div class="message ai">
+                                Hello! I'm Nikolas's digital assistant. How can I help you architect your next solution today?
+                            </div>
+                        </div>
+                        <div class="chat-input-area">
+                            <input type="text" id="chat-input" class="chat-input" placeholder="Ask about my Frappe experience..." onkeypress="handleKeyPress(event)">
+                            <button class="btn btn-primary" onclick="sendMessage()">
+                                <i class="ph ph-paper-plane-right"></i> Send ✨
+                            </button>
+                        </div>
+                    </div>
+                    <div style="text-align: right; margin-top: 5px;">
+                        <small style="color: var(--text-muted); font-size: 0.75rem;">Powered by Google Gemini API</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT / PERSONAL -->
+    <section id="about" class="section">
+        <div class="container">
+            <div style="background: var(--bg-card); padding: 40px; border-radius: 12px; border: 1px solid var(--border);">
+                <div style="display: flex; gap: 40px; flex-wrap: wrap;">
+                    <div style="flex: 1; min-width: 300px;">
+                        <h3 style="color: var(--text-main); margin-bottom: 20px;">Beyond the Code</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 20px;">
+                            I don't fit the standard "developer" mold. I come from a background of hands-on operations. I understand that software doesn't exist in a vacuum—it has to work for the people in the field and the servers in the rack.
+                        </p>
+                        <p style="color: var(--text-muted);">
+                            I am currently pursuing a Computer Science degree at <strong>Western Governors University</strong>. When I'm not deploying code, I'm usually optimizing my crypto mining farm, tinkering with the telemetry on my 2025 Sonata, or exploring the mountains around Bountiful.
+                        </p>
+                    </div>
+                    <div style="flex: 1; min-width: 300px;">
+                        <ul style="border-left: 2px solid var(--border); padding-left: 20px;">
+                            <li style="margin-bottom: 20px;">
+                                <div style="color: var(--accent); font-weight: 700; margin-bottom: 5px;">2022 — Present</div>
+                                <div style="font-weight: 600;">Project Manager & Operations Lead</div>
+                                <div style="font-size: 0.9rem; color: var(--text-muted);">Sapphire Fountains</div>
+                            </li>
+                            <li style="margin-bottom: 20px;">
+                                <div style="color: var(--accent); font-weight: 700; margin-bottom: 5px;">2020 — Present</div>
+                                <div style="font-weight: 600;">Freelance Software Engineer</div>
+                                <div style="font-size: 0.9rem; color: var(--text-muted);">Full Stack Python & Automation</div>
+                            </li>
+                            <li>
+                                <div style="color: var(--accent); font-weight: 700; margin-bottom: 5px;">Education</div>
+                                <div style="font-weight: 600;">B.S. Computer Science</div>
+                                <div style="font-size: 0.9rem; color: var(--text-muted);">Western Governors University (In Progress)</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="container" style="padding-bottom: 100px;">
+        <div class="contact-box">
+            <h2 style="justify-content: center; margin-bottom: 1rem;">Ready to Optimize?</h2>
+            <p style="color: var(--text-muted); margin-bottom: 2rem;">
+                Whether you need a custom Frappe app, a complex data migration, or a project manager who actually understands the code.
+            </p>
+            <a href="mailto:contact@nbbshaw.com" class="btn btn-primary">
+                <i class="ph ph-envelope-simple"></i>
+                Get In Touch
+            </a>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <p>Designed & Built by Nikolas Bradshaw</p>
-            <div style="margin-top: 10px; font-size: 0.8rem; color: #555;">
-                &copy; 2025 nbbshaw.com
-            </div>
+            <p>&copy; 2025 Nikolas Bradshaw. Built with <i class="ph ph-coffee" style="color: var(--accent)"></i> and Gemini.</p>
+            <p class="mono" style="font-size: 0.8rem; margin-top: 10px; opacity: 0.5;">nbbshaw.com</p>
         </div>
     </footer>
 
+    <!-- GEMINI API SCRIPT -->
+    <script>
+        const apiKey = ""; // The execution environment provides the key at runtime
+
+        const systemPrompt = `
+        You are an AI assistant for the portfolio of Nikolas Bradshaw.
+        
+        About Nikolas:
+        - Role: Project Manager, Operations Lead, and Software Engineer.
+        - Location: Bountiful, Utah.
+        - Company: Sapphire Fountains.
+        - Education: BS Computer Science at Western Governors University (WGU).
+        - Core Stack: Python, Frappe Framework, ERPNext (v14/15), JavaScript (Vue.js), Docker, Linux, SQL (MariaDB).
+        
+        Key Projects:
+        1. Gemini AI Integration: Integrated Google Gemini Pro into ERPNext for SQL querying and doc summarization.
+        2. QuickBooks Time Bridge: Created a sync engine to migrate/sync data from QB Time to ERPNext.
+        3. Project Module Overhaul: Custom JavaScript/Python customization of ERPNext Projects module.
+        4. Hardware: Built a crypto mining farm (LTC/DOGE) and a telemetry dashboard for a 2025 Hyundai Sonata using OBD-II/Raspberry Pi.
+        
+        Your Goal:
+        Answer user questions about Nikolas's skills, experience, and projects. 
+        If the user asks for architectural advice (e.g., "How do I migrate from X to Y?"), give a high-level recommendation based on Nikolas's expertise (e.g., suggesting Frappe or Python scripts).
+        Be professional, concise, and technically accurate.
+        `;
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+
+        async function sendMessage() {
+            const inputField = document.getElementById('chat-input');
+            const messageContainer = document.getElementById('chat-messages');
+            const userText = inputField.value.trim();
+
+            if (!userText) return;
+
+            // Add User Message
+            appendMessage('user', userText);
+            inputField.value = '';
+            
+            // Add Loading Indicator
+            const loadingId = 'loading-' + Date.now();
+            appendMessage('ai', 'Thinking...', loadingId);
+
+            try {
+                const responseText = await callGeminiAPI(userText);
+                
+                // Remove loading and add real response
+                const loadingElement = document.getElementById(loadingId);
+                if (loadingElement) loadingElement.remove();
+                
+                appendMessage('ai', responseText);
+            } catch (error) {
+                const loadingElement = document.getElementById(loadingId);
+                if (loadingElement) loadingElement.remove();
+                appendMessage('ai', "I'm having trouble connecting to the neural network right now. Please try again later.");
+                console.error(error);
+            }
+        }
+
+        function appendMessage(sender, text, id = null) {
+            const messageContainer = document.getElementById('chat-messages');
+            const div = document.createElement('div');
+            div.className = `message ${sender}`;
+            div.textContent = text;
+            if (id) div.id = id;
+            messageContainer.appendChild(div);
+            messageContainer.scrollTop = messageContainer.scrollHeight;
+        }
+
+        async function callGeminiAPI(userQuery) {
+            if (!apiKey) {
+                return "Note: API Key is missing. If you are viewing this locally, you need to add your Gemini API key to the script at the bottom of the HTML file.";
+            }
+
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+            
+            const payload = {
+                contents: [{
+                    parts: [{ text: userQuery }]
+                }],
+                systemInstruction: {
+                    parts: [{ text: systemPrompt }]
+                }
+            };
+
+            // Retry logic with exponential backoff
+            const maxRetries = 5;
+            let attempt = 0;
+            let delay = 1000;
+
+            while (attempt < maxRetries) {
+                try {
+                    const response = await fetch(url, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+
+                    const data = await response.json();
+                    return data.candidates?.[0]?.content?.parts?.[0]?.text || "No response generated.";
+
+                } catch (e) {
+                    attempt++;
+                    if (attempt >= maxRetries) throw e;
+                    await new Promise(resolve => setTimeout(resolve, delay));
+                    delay *= 2;
+                }
+            }
+        }
+    </script>
 </body>
 </html>
